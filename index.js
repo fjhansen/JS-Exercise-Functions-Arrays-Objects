@@ -39,8 +39,12 @@ function addNumbers(num1, num2) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
-  /* code here */
+function makePersonObject(id, name, email) {
+  return {
+    id: id,
+    name: name,
+    email: email,
+  };
 }
 
 /**
@@ -56,10 +60,9 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+function getName({name}) {
+return (`Hello, my name is ${name}`)
 }
-
 /**
  * ### Challenge `makeSmartPerson`
  * 
@@ -73,10 +76,16 @@ function getName(/* code here */) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
-}
-
+function makeSmartPerson(smartName) {
+ 
+  const obj = {
+    name:smartName,
+    sum: (num1,num2) => num1 + num2,
+    
+    speak: () =>`hello my name is ${obj.name}`
+    }
+          return obj;
+  }
 
 
 
@@ -136,7 +145,10 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+  const carInfoIndex = inventory[index];
+
+  return `The car is a ${carInfoIndex.car_make} ${carInfoIndex.car_model}`;
+
 }
 
 /**
@@ -150,8 +162,11 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(inventory) {
+  
+  const last = inventory[inventory.length -1]
+
+  return `This is a ${last.car_make} ${last.car_model}`
 }
 
 /**
@@ -178,8 +193,8 @@ function getCarInfoById(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
-  /* code here */
+function sortCarInventory(inventory) {
+  return inventory.sort((a,b) => (a.car_model > b.car_make ? 1 : -1)); //Compare function and shorthand for conditional if statement ? = true : = false
 }
 
 /**
