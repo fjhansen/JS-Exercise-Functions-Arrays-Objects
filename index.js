@@ -194,7 +194,14 @@ function getCarInfoById(/* code here */) {
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
 function sortCarInventory(inventory) {
-  return inventory.sort((a,b) => (a.car_model > b.car_make ? 1 : -1)); //Compare function and shorthand for conditional if statement ? = true : = false
+  
+  let sortedCar = inventory.sort((a,b) =>{
+    if(a.car_model > b.car_model) return 1;
+    else if (b.car_model > a.car_model) return -1;
+    else return 0;
+    
+  }) //Compare function and shorthand for conditional if statement ? = true : = false
+  return sortedCar
 }
 
 /**
@@ -206,8 +213,13 @@ function sortCarInventory(inventory) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+function getModelYears(inventory) {
+ let modelYears = []; //establish empty array
+ for (let i = 0; i < inventory.length; i++) {
+   modelYears.push(inventory[i].car_year);
+
+ }
+ return modelYears;
 }
 
 /**
@@ -222,8 +234,14 @@ function getModelYears(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+function getOlderCars(inventory,maxNum) {
+  let oldCar = [];
+  for(let i=0; i < inventory.length; i++) {
+    if(inventory[i].car_year <= maxNum) {
+      oldCar.push(inventory[i])
+    }
+  }
+  return oldCar;
 }
 
 /**
@@ -237,10 +255,17 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(inventory) {
+let newArray = [];
+for (let i=0; i < inventory.length; i++) {
+  let newGerman = ['Audi', 'Mercedes-Benz', 'Volkswagen', 'BMW']
+  let car = inventory[i].car_make;
+  if(newGerman.includes(car)) {
+    newArray.push(inventory[i]);
+  }
 }
-
+return newArray
+}
 /**
  * ### Challenge refactor to arrow functions
  * 
