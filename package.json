@@ -1,19 +1,19 @@
 {
   "name": "js-exercise-functions-arrays-objects",
-  "description": "",
+  "description": "This challenge focuses on functions, objects and arrays. You'll convert \"traditional\" functions into functions that use the ES6 arrow syntax. You'll also manipulate objects and traverse arrays.",
   "version": "1.0.0",
   "main": "index.js",
   "homepage": "https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Functions-Arrays-Objects?previewwindow=browser",
   "repository": {
-    "url": "git@github.com:LambdaSchool/JS-Exercise-Functions-Arrays-Objects.git",
+    "url": "git+ssh://git@github.com/LambdaSchool/JS-Exercise-Functions-Arrays-Objects.git",
     "type": "git"
   },
   "scripts": {
-    "dev": "./node_modules/.bin/lite-server",
+    "dev": "lite-server",
     "start": "NODE_OPTIONS=--no-warnings ./node_modules/.bin/mocha ./test",
     "pretest": "NODE_OPTIONS=--no-warnings npm install > /dev/null",
     "test": "NODE_OPTIONS=--no-warnings ./node_modules/.bin/mocha ./test",
-    "test:watch": "./node_modules/.bin/mocha --growl --reporter=list --watch './test'"
+    "test:watch": "mocha --growl --reporter=list --watch './test'"
   },
   "keywords": [
     "object",
@@ -35,5 +35,12 @@
     "eslint": "^6.5.1",
     "growl": "^1.10.5",
     "lite-server": "^2.5.4"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/LambdaSchool/JS-Exercise-Functions-Arrays-Objects/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "author": ""
 }
